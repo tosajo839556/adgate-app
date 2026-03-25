@@ -1,0 +1,247 @@
+/* Custom styles for AdGate */
+
+:root {
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Smooth animations for all interactive elements */
+* {
+    transition: var(--transition-smooth);
+}
+
+/* Hero section styling */
+.hero-section {
+    min-height: 80vh;
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(25, 135, 84, 0.1) 100%);
+}
+
+/* Ad container styling */
+.ad-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.ad-placeholder {
+    background: var(--bs-body-bg);
+    border: 2px dashed var(--bs-border-color);
+    border-radius: 12px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.ad-unit {
+    min-height: 300px;
+    width: 100%;
+    background: var(--bs-body-bg);
+    border-radius: 12px;
+    display: none;
+}
+
+.ad-unit.loaded {
+    display: block;
+}
+
+/* Timer styling */
+.ad-timer {
+    max-width: 400px;
+    margin: 0 auto;
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button animations */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-lg {
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#get-link-btn {
+    min-width: 200px;
+    position: relative;
+    background: linear-gradient(45deg, #198754, #20c997);
+    border: none;
+}
+
+#get-link-btn:disabled {
+    background: var(--bs-secondary);
+    cursor: not-allowed;
+    transform: none;
+}
+
+#get-link-btn:hover:not(:disabled) {
+    background: linear-gradient(45deg, #157347, #1aa179);
+}
+
+/* Progress bar animation */
+.progress {
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    transition: width 0.1s ease;
+}
+
+/* Feature icons */
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.feature-icon:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Success icon animation */
+.success-icon {
+    animation: zoomIn 0.5s ease-out;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Card hover effects */
+.card {
+    border-radius: 12px;
+    border: 1px solid var(--bs-border-color);
+    transition: var(--transition-smooth);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Loading states */
+.spinner-border {
+    animation-duration: 0.75s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section {
+        min-height: 70vh;
+    }
+    
+    .ad-container {
+        margin: 0 15px;
+    }
+    
+    .btn-lg {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .ad-placeholder {
+        min-height: 250px;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Dark mode specific adjustments */
+[data-bs-theme="dark"] .ad-placeholder {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-bs-theme="dark"] .hero-section {
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.15) 0%, rgba(25, 135, 84, 0.15) 100%);
+}
+
+/* Navbar styling */
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.navbar {
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+/* Footer styling */
+footer {
+    border-top: 1px solid var(--bs-border-color);
+}
+
+/* Alert animations */
+.alert {
+    animation: slideInDown 0.3s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

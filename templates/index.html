@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Watch Ad to Access Content - AdGate{% endblock %}
+
+{% block content %}
+<div class="hero-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-4 fw-bold mb-4">
+                    <i class="fas fa-lock me-3"></i>Premium Content Awaits
+                </h1>
+                <p class="lead mb-5">Watch a quick ad to unlock exclusive content and downloads</p>
+                
+                <div id="ad-container" class="ad-container mb-4">
+                    <div class="ad-placeholder" id="ad-placeholder">
+                        <div class="text-center p-5">
+                            <i class="fas fa-tv fa-3x mb-3 opacity-50"></i>
+                            <h4>Advertisement</h4>
+                            <p class="mb-3">Please wait for the ad to load...</p>
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <ins class="adsbygoogle ad-unit"
+                         style="display:block; min-height:280px;"
+                         data-ad-client="{{ config.ADSENSE_CLIENT_ID }}"
+                         data-ad-slot="1234567890"
+                         data-ad-format="rectangle"
+                         data-full-width-responsive="true"></ins>
+                </div>
+
+                <div id="ad-timer" class="ad-timer mb-4" style="display: none;">
+                    <div class="card bg-info">
+                        <div class="card-body">
+                            <h5 class="card-title mb-2">
+                                <i class="fas fa-clock me-2"></i>Please Wait
+                            </h5>
+                            <p class="card-text mb-3">You can access content in <span id="countdown">15</span> seconds</p>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                                     id="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="get-link-btn" class="btn btn-success btn-lg px-5 py-3" disabled>
+                        <i class="fas fa-download me-2"></i>Get Your Link
+                        <div id="btn-spinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </button>
+                    <div class="mt-3">
+                        <small class="text-muted">
+                            <i class="fas fa-shield-alt me-1"></i>
+                            Safe and secure ad experience
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-5">
+            <div class="col-md-4 text-center mb-4">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-bolt fa-2x text-warning"></i>
+                </div>
+                <h5>Fast Access</h5>
+                <p class="text-muted">Quick 15-second ads for instant content access</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-shield-check fa-2x text-success"></i>
+                </div>
+                <h5>Safe & Secure</h5>
+                <p class="text-muted">All ads are vetted and safe for all users</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-mobile-alt fa-2x text-info"></i>
+                </div>
+                <h5>Mobile Friendly</h5>
+                <p class="text-muted">Optimized experience on all devices</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Initialize ads when page loads
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+{% endblock %}
